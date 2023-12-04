@@ -1,0 +1,1 @@
+clj -M:nextjournal/clerk nextjournal.clerk/serve! --watch-paths src --port 7777 --browse
