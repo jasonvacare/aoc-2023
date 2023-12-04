@@ -1,7 +1,10 @@
-{ :paths ["src"]
-  :deps  { org.clojure/clojure         {:mvn/version "1.11.1"}
-           io.github.nextjournal/clerk {:mvn/version "0.15.957"}}
-  :aliases { :nextjournal/clerk { :extra-paths ["datasets"]
-                                  :exec-fn     nextjournal.clerk/build!
-                                  :exec-args   {:paths ["notebooks/introduction.clj"]}
-                                  :main-opts   ["-m" "babashka.cli.exec"]}}}
+{:paths ["src"]
+ 
+ :deps  {org.clojure/clojure         {:mvn/version "1.11.1"}
+         io.github.nextjournal/clerk {:mvn/version "0.15.957"} 
+         org.babashka/cli {:mvn/version "0.7.52"}}
+ 
+ :aliases {:nextjournal/clerk {:extra-paths ["datasets"]
+                               :exec-fn     nextjournal.clerk/build!
+                               :exec-args   {:paths ["notebooks/introduction.clj"]}
+                               :main-opts   ["-m" "babashka.cli.exec"]}}}

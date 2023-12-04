@@ -1,5 +1,5 @@
 (ns day2_2
-  (:require [aoc-2023.core :refer [parse-lines]]
+  (:require [core :refer [parse-lines]]
             [clojure.string :as str]))
 
 ; processing today's specific input file
