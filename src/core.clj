@@ -1,4 +1,4 @@
-(ns aoc-2023.core
+(ns core
   (:require [clojure.string :as str]))
 
 (defn get-lines [filename]

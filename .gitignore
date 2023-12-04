@@ -2,5 +2,6 @@
 /.clj-kondo
 /.cpcache
 /.lsp
+.gitignore
 .hgignore
 clerks.ps1
