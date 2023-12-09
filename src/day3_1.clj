@@ -8,7 +8,7 @@
   (let [match (re-matcher #"(\d+)" string)]
     ((fn step []
        (when (. match find)
-         (cons {:line-number line-number :index (. match start) :length (- (. match end) (. match start)) :end (. match end) :part-number (parse-long (. match group))}
+         (cons {:line-number line-number :start (. match start) :length (- (. match end) (. match start)) :end (. match end) :part-number (parse-long (. match group))}
                (lazy-seq (step))))))))
 
 (defn re-seq-symbol [string line-number]
@@ -26,8 +26,14 @@
 ; index, start-1, end
 ; index+1, start through end-1
 
-(def test-part {:line-number 35 :index 103 :length 3 :end 106 :part-number 357})
+(def test-part {:line-number 35 :start 103 :length 3 :end 106 :part-number 357})
 
-
-
-
+(defn get-neighbors [possible-part]
+  (set {{set {:line-number (dec (possible-part :line-number)) :index (possible-part :start)}} 
+        {set {:line-number (dec (possible-part :line-number)) :index (+ 1 (possible-part :start))}}
+        {set {:line-number (dec (possible-part :line-number)) :index (+ 2 (possible-part :start))}}
+        {set {:line-number (possible-part :line-number) :index (dec (possible-part :start))}}
+        {set {:line-number (possible-part :line-number) :index (possible-part :end)}}
+        {set {:line-number (inc (possible-part :line-number)) :index (possible-part :start)}}
+        {set {:line-number (inc (possible-part :line-number)) :index (+ 1 (possible-part :start))}}
+        {set {:line-number (inc (possible-part :line-number)) :index (+ 2 (possible-part :start))}}}))
