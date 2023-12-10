@@ -37,3 +37,5 @@
        (set {:line-number (inc (possible-part :line-number)) :index (possible-part :start)})
        (set {:line-number (inc (possible-part :line-number)) :index (+ 1 (possible-part :start))})
        (set {:line-number (inc (possible-part :line-number)) :index (+ 2 (possible-part :start))})]))
+
+(get-neighbors test-part)
