@@ -29,11 +29,11 @@
 (def test-part {:line-number 35 :start 103 :length 3 :end 106 :part-number 357})
 
 (defn get-neighbors [possible-part]
-  (set {{set {:line-number (dec (possible-part :line-number)) :index (possible-part :start)}} 
-        {set {:line-number (dec (possible-part :line-number)) :index (+ 1 (possible-part :start))}}
-        {set {:line-number (dec (possible-part :line-number)) :index (+ 2 (possible-part :start))}}
-        {set {:line-number (possible-part :line-number) :index (dec (possible-part :start))}}
-        {set {:line-number (possible-part :line-number) :index (possible-part :end)}}
-        {set {:line-number (inc (possible-part :line-number)) :index (possible-part :start)}}
-        {set {:line-number (inc (possible-part :line-number)) :index (+ 1 (possible-part :start))}}
-        {set {:line-number (inc (possible-part :line-number)) :index (+ 2 (possible-part :start))}}}))
+  (set [(set {:line-number (dec (possible-part :line-number)) :index (possible-part :start)}) 
+       (set {:line-number (dec (possible-part :line-number)) :index (+ 1 (possible-part :start))})
+       (set {:line-number (dec (possible-part :line-number)) :index (+ 2 (possible-part :start))})
+       (set {:line-number (possible-part :line-number) :index (dec (possible-part :start))})
+       (set {:line-number (possible-part :line-number) :index (possible-part :end)})
+       (set {:line-number (inc (possible-part :line-number)) :index (possible-part :start)})
+       (set {:line-number (inc (possible-part :line-number)) :index (+ 1 (possible-part :start))})
+       (set {:line-number (inc (possible-part :line-number)) :index (+ 2 (possible-part :start))})]))
